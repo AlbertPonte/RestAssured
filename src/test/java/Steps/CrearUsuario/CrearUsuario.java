@@ -1,5 +1,6 @@
 package Steps.CrearUsuario;
 
+import basic.basicSetup;
 import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -12,15 +13,11 @@ import java.io.File;
 import static io.restassured.RestAssured.given;
 
 
-public class CrearUsuario {
+public class CrearUsuario extends basicSetup {
 
     public static RequestSpecification peticion;
     public Response response;
 
-    @After
-    public void RestApi(){
-        RestAssured.reset();
-    }
     @Given("^que el usuario ya tiene acceso a la API$")
     public void queElUsuarioYaTieneAccesoALaAPI() {
 

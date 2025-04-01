@@ -17,12 +17,7 @@ import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
 public class UpdateUserPatchSteps {
-    @Before
-    public void setup(){
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api/";
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-    }
+
     private static RequestSpecification request;
     private Response response;
 

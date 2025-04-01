@@ -1,5 +1,6 @@
 package Steps.Repaso;
 
+import basic.basicSetup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -11,18 +12,10 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 
-public class DeleteUserSteps {
-    @Before
-    public void setup(){
-        RestAssured.baseURI =  "https://reqres.in";
-        RestAssured.basePath = "/api/users/";
-    }
+public class DeleteUserSteps extends basicSetup {
+
     public static RequestSpecification request;
     public Response respuesta;
-    @After
-    public void RestApi(){
-        RestAssured.reset();
-    }
 
     @Given("^que el usuario tiene acceso a la api$")
     public void queElUsuarioTieneAccesoALaApi() {

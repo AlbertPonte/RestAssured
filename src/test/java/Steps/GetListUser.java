@@ -48,6 +48,7 @@ public class GetListUser {
     public void solicitoListaPorPagina(int pag) {
         response =  request
                 .when()
+                .basePath(basePath)
                 .get("users?page={pag}",pag);
     }
 

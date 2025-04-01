@@ -1,5 +1,6 @@
 package Steps.Repaso;
 
+import basic.basicSetup;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
@@ -17,18 +18,10 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.hasItem;
 
-public class CrearUsuarioPost {
-    @Before
-    public void setup(){
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api";
-    }
+public class CrearUsuarioPost extends basicSetup {
+
     public static RequestSpecification request;
     public Response response;
-    @After
-    public void RestApiPost(){
-        RestAssured.reset();
-    }
 
     @Given("^que el usuario tiene acceos a la api crear usuario$")
     public void queElUsuarioTieneAcceosALaApiCrearUsuario() {

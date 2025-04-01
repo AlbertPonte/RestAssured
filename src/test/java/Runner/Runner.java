@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = "src/test/resources/",
         glue = "Steps",
-        tags = "@RepasoPost",
+        tags = "@Getparameters",
         snippets = CucumberOptions.SnippetType.CAMELCASE
        // plugin = {"com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:", "json:target/cucumber-reports.json"}
 )

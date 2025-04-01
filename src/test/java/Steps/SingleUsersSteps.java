@@ -1,5 +1,6 @@
 package Steps;
 
+import basic.basicSetup;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -13,20 +14,15 @@ import io.restassured.specification.RequestSpecification;
 import static io.restassured.RestAssured.given;
 import static org.junit.Assert.assertEquals;
 
-public class SingleUsersSteps {
+public class SingleUsersSteps extends basicSetup {
 
     private static RequestSpecification request;
     private Response response;
 
-    @Before
-    public void setup() {
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api/";
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-    }
-
     @Given("^he accedido a la api single user$")
     public void heAccedidoALaApiSingleUser() {
+        base_Uri_Path_Json();
+        filtrosLog();
         request = given()
                 .contentType(ContentType.JSON);
     }

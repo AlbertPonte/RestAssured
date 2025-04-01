@@ -1,5 +1,6 @@
 package Steps;
 
+import basic.basicSetup;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -16,13 +17,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 
-public class DeleteUserSteps {
-    @Before
-    public void setup(){
-        RestAssured.baseURI = "https://reqres.in";
-        RestAssured.basePath = "/api/users";
-        RestAssured.filters(new RequestLoggingFilter(), new ResponseLoggingFilter());
-    }
+public class DeleteUserSteps extends basicSetup {
+
     private static RequestSpecification request;
     private Response response;
 

@@ -7,6 +7,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
+
+import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
 import static io.restassured.RestAssured.given;
@@ -62,7 +64,7 @@ public class ListarUsuariosSteps {
         List<String> usuarioResponse = response.jsonPath().getList("data.first_name");
         assertTrue(usuarioResponse.contains(usuario));
 
-        List<Map> usersWithIdGreatThan10 = from(usuarioResponse).get("data.findAll {user -> user.id > 10}");
+        List<Map> usersWithIdGreatThan10 = from((InputStream) usuarioResponse).get("data.findAll {user -> user.id > 10}");
 
     }
 }
